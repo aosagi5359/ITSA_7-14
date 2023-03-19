@@ -241,7 +241,7 @@ int main()
 	bool a=1; 
 	
 	cin>>input;
-    //將字串逆序傳到output 
+    //將字串由後向前傳到output 
 	for(int i=input.length()-1;i>=0;i--){
 		output[input.length()-1-i]=input[i];
 	}//比較是否有異 
@@ -249,7 +249,7 @@ int main()
 		if(input[j]!=output[j]){a=0;break;}//發現有異即時跳出 
 		else a=1;
 	}
-	a ? cout<<"YES"<<endl : cout<<"NO"<<endl;//輸出結果 
+	a ? cout<<"YES"<<endl : cout<<"NO"<<endl; 
 	return 0;
 } 
 ```
