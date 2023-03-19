@@ -1,6 +1,7 @@
 ITSA 7 ~ 14 解題方式
 ===
-題目7. 複數運算
+
+題目8. 質數判別
 ---
 ```C
 #include <iostream>
@@ -17,8 +18,8 @@ int main(){
             cout<<"NO\n";
             break;
         }
-        if(i >=11){
-            cout<<"YES\n";
+        if(i >11){        //當i超過11後 num為質數
+            cout<<"YES\n"; 
             break;
         } 
         if(i >= 3){ //讓 i 陸續變成 3,5,7,11
@@ -28,3 +29,4 @@ int main(){
     }
 }
 ```
+i超過11時，代表已經沒有任何數為num的因數，則num為質數
