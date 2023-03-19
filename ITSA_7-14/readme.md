@@ -139,3 +139,117 @@ int main(){
 	return 0;
 }
 ```
+
+題目12. 遞迴程式練習
+```c
+#include <iostream>
+using namespace std;
+
+double f(int n){  //輸入值後在這裡運算函式
+	if (n == 0 || n == 1)
+	return n + 1;
+	else if (n > 1)
+	return f(n - 1) + f(n / 2);
+}
+
+int main(){
+	int i;
+	cin >> i;
+	cout << f(i) << endl;
+	return 0;
+}
+
+```
+
+題目13. 撲克牌大小
+
+```c
+#include <iostream>  
+#include <string.h>  
+#include <sstream>  
+#include <vector>  
+#include <algorithm>  
+using namespace std;  
+bool f(string a,string b);  
+int main()  
+{  
+    int num;  
+    cin>>num;  
+    cin.get();  
+    for(int i=0;i<num;i++)  
+    {  
+        string input;  
+        getline(cin,input);  
+        istringstream delim(input);  
+        string token;  
+        vector<string>arr;  
+        while(getline(delim,token,' '))  
+        {  
+            arr.push_back(token);  
+        }  
+        sort(arr.begin(),arr.end(),f);  
+        for(int j=0;j<arr.size();j++)  
+        {  
+            if(j!=arr.size()-1)  
+                cout<<arr[j]<<" ";  
+            else  
+                cout<<arr[j]<<endl;  
+        }  
+    }  
+    return 0;  
+}  
+bool f(string a,string b)  
+{  
+    if(a[0]>b[0])  
+        return true;  
+    else if(a[0]==b[0])  
+    {  
+        if(a.length()>b.length())  
+            return true;  
+        else if(a.length()==b.length() && a.length()==2)  
+        {  
+            if(a[1]>b[1])  
+                return true;  
+            else  
+                return false;  
+        }  
+        else if(a.length()==b.length() && a.length()==3)  
+        {  
+            if(a[2]>b[2])  
+                return true;  
+            else  
+                return false;  
+        }  
+        else  
+            return false;  
+    }  
+    else  
+        return false;  
+}  
+```
+
+題目14. 判斷是否為迴文
+
+```c
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	string input,output;
+	bool a=1; 
+	
+	cin>>input;
+    //將字串逆序傳到output 
+	for(int i=input.length()-1;i>=0;i--){
+		output[input.length()-1-i]=input[i];
+	}//比較是否有異 
+	for(int j=0;j<input.length();j++){
+		if(input[j]!=output[j]){a=0;break;}//發現有異即時跳出 
+		else a=1;
+	}
+	a ? cout<<"YES"<<endl : cout<<"NO"<<endl;//輸出結果 
+	return 0;
+} 
+```
